@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Administración de Expedientes</ion-title>
+  </ion-toolbar>
+  <ion-searchbar placeholder="Buscar" animated (ionChange) = "searchPaciente($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- lista de pacientes -->
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let paciente of searchedPaciente">
+
+      <ion-card color="light">
+        <ion-card-header>          
+          <ion-card-title>{{paciente.nombre}}
+          </ion-card-title>
+          <ion-card-subtitle>Expediente: {{paciente.id}}:{{paciente.expediente}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Fecha de Ingreso: {{paciente.fechaIngreso}}<br>
+          Diagnóstico: {{paciente.valoracion}}
+        </ion-card-content>
+      </ion-card>
+      <ion-avatar slot="end">
+        <ion-icon name="clipboard-outline" style="zoom: 1.5; color: rgb(0, 128, 100);" [routerLink] = "['/detalles/',paciente.id]"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+</ion-content>

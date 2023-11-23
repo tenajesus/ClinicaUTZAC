@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registrar Sesion del Paciente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+<ion-list lines="full">
+  <ion-item>
+    <ion-input [(ngModel)]="id" type="number" label="Id Paciente" labelPlacement="floating" >
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="fechaSesion" type="date" label="Fecha de Sesión" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="numSesion" type="number" label="N° de Sesión" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)]="actividad" type="text" label="Actividad" labelPlacement="floating"></ion-textarea>
+  </ion-item>
+  <ion-item>
+        <ion-select label="Utilizó Realidad Aumentada" label-placement="floating" [(ngModel)]="realidadaumentada">
+          <ion-select-option value="1">Si</ion-select-option>
+          <ion-select-option value="0">No</ion-select-option>
+        </ion-select>   
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="fisio" type="text" label="Fisioterapeuta" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-select label="Semaforización de la Sesión" label-placement="floating" [(ngModel)]="semaforo">
+      <ion-select-option value="1">Verde</ion-select-option>
+      <ion-select-option value="2">Amarillo</ion-select-option>
+      <ion-select-option value="3">Rojo</ion-select-option>
+    </ion-select>   
+</ion-item>
+<ion-item>
+  <ion-textarea [(ngModel)]="indicaciones" type="text" label="Indicaciones" labelPlacement="floating"></ion-textarea>
+</ion-item>
+<ion-item>
+  <ion-input [(ngModel)]="proximasesion" type="date" label="Próxima sesión" labelPlacement="floating"></ion-input>
+</ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button id="present-alert" color="success" (click)="addSesion()"
+      shape="full" expand="block">Registrar Datos</ion-button>
+      <ion-button color="danger" [routerLink]="['/seguimiento']"
+      shape="full" expand="block">Cancelar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-list>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro de Pagos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input [(ngModel)]="id" type="number" label="Id Paciente" labelPlacement="floating" >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="importe" type="number" label="Importe del Recibo" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="receipt" type="text" label="Número de Recibo" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="fechaPago" type="date" label="Fecha de Pago" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [(ngModel)]="concepto" type="text" label="Concepto de Pago" labelPlacement="floating"></ion-textarea>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button id="present-alert" color="success" (click)="addPay()"
+        shape="full" expand="block">Registrar Datos</ion-button>
+        <ion-button color="danger" [routerLink]="['/seguimiento']"
+        shape="full" expand="block">Cancelar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

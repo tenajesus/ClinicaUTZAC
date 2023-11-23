@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Actualización de Pacientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input [(ngModel)]="expediente" type="number" label="Expediente" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="fechaIngreso" type="date" label="Fecha de Ingreso" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="nombre" type="text" label="Nombre" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="edad" type="number" label="Edad" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+          <ion-select label="Sexo" label-placement="floating" [(ngModel)]="sexo">
+            <ion-select-option value="Hombre">Hombre</ion-select-option>
+            <ion-select-option value="Mujer">Mujer</ion-select-option>
+          </ion-select>   
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="nacimiento" type="date" label="Fecha de Nacimiento" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Escolaridad" label-placement="floating" [(ngModel)]="escolaridad">
+        <ion-select-option value="Primaria">Primaria</ion-select-option>
+        <ion-select-option value="Secundaria">Secundaria</ion-select-option>
+        <ion-select-option value="Bachillerato">Bachillerato</ion-select-option>
+        <ion-select-option value="Universidad o Posgrado">Universidad o Posgrado</ion-select-option>
+      </ion-select>   
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="telefono" type="text" label="Telefono" labelPlacement="floating"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input [(ngModel)]="fisio" type="text" label="Fisioterapeuta" labelPlacement="floating"></ion-input>
+  </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button id="present-alert" color="success" (click)="updatePaciente()"
+        shape="full" expand="block">Actualizar Registro</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="present-alert" color="danger" [routerLink] = "['/pacientes']"
+        shape="full" expand="block">Cancelar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+</ion-content>

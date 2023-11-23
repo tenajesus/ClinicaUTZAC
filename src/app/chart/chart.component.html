@@ -1,0 +1,19 @@
+  <!-- <div>
+    <h2>Chart Example</h2>
+    {{ chartOptions | json }}
+  </div> -->
+  <div id="chart">
+    <apx-chart
+      #realTimePrices
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [stroke]="chartOptions.stroke"
+      [dataLabels]="chartOptions.dataLabels"
+      [yaxis]="chartOptions.yaxis"
+      [labels]="chartOptions.labels"
+      [legend]="chartOptions.legend"
+      [title]="chartOptions.title"
+      [subtitle]="chartOptions.subtitle"
+    ></apx-chart>
+  </div>

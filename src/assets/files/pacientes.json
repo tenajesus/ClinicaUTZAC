@@ -1,0 +1,28 @@
+{
+    "pacientes": [
+      {
+        "Name": "Salvador Rodíguez",
+        "Edad": "42",
+        "Lesion": "Ligamento Cruzado",
+        "Fisio": "Jose"
+      },
+      {
+        "Name": "Laura Janet",
+        "Edad": "40",
+        "Lesion": "Tibia y Peroné",
+        "Fisio": "Mario"
+      },
+      {
+        "Name": "Andres Guardado",
+        "Edad": "38",
+        "Lesion": "Antebrazo",
+        "Fisio": "Maria"
+      },
+      {
+        "Name": "Andres Manuel Lopez",
+        "Edad": "63",
+        "Lesion": "Rotula Derecha",
+        "Fisio": "Maria"
+      }
+    ]
+  }

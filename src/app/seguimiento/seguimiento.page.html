@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Seguimiento del Paciente</ion-title>
+  </ion-toolbar>
+  <ion-searchbar placeholder="Buscar" animated (ionChange) = "searchPaciente($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <!-- lista de pacientes -->
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let paciente of searchedPaciente">
+      <ion-avatar slot="start">
+        <ion-icon name="folder" style="zoom: 1.5; color: yellow;"></ion-icon>
+        <!-- <img src="../../assets/avatar/exp.jpg"> -->
+      </ion-avatar>
+        <ion-label>
+            <h2 class="color">Expediente: {{paciente.id}}:{{paciente.expediente}}</h2>
+            <h3>Nombre: {{paciente.nombre}}</h3>
+        </ion-label>
+        <ion-avatar slot="end">
+          <ion-icon name="bar-chart-outline" style="zoom: 1.5; color: rgb(9, 0, 128);" [routerLink] = "['/sesion/',paciente.id]"></ion-icon>
+        </ion-avatar>
+        <ion-avatar slot="end">
+          <ion-icon name="cash-outline" style="zoom: 1.5; color: rgb(0, 128, 100);" [routerLink] = "['/pagos/',paciente.id]"></ion-icon>
+        </ion-avatar>
+    </ion-item>
+  </ion-list>
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="goToHome()" color="danger"
+      shape="full" expand="block">Cancelar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

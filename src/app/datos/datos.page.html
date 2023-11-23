@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>Procesamiento y Análisis de Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- lista de pacientes -->
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let item of pacientes">
+      <ion-label>{{ item.title }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

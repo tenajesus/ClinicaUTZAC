@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Detalles del Expediente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item-divider>
+      <ion-label> Datos Generales del Paciente </ion-label>
+    </ion-item-divider>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-input [(ngModel)]="id" labelPlacement="floating" type="number" label="Paciente:" [readonly]="true" fill="outline" ></ion-input></ion-col>
+    <ion-col><ion-input [(ngModel)]="name" labelPlacement="floating" type="text" label="Nombre:" [readonly]="true" fill="outline"></ion-input></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-input [(ngModel)]="fechaIngreso" labelPlacement="floating" type="text" label="Fecha de Ingreso:" [readonly]="true" fill="outline"></ion-input></ion-col>
+    <ion-col><ion-input [(ngModel)]="edad" labelPlacement="floating" type="text" label="Edad:" [readonly]="true" fill="outline"></ion-input></ion-col>
+    <ion-col><ion-input [(ngModel)]="sexo" labelPlacement="floating" type="text" label="Sexo:" [readonly]="true" fill="outline"></ion-input></ion-col>
+    <ion-col><ion-input [(ngModel)]="nacimiento" labelPlacement="floating" type="text" label="Nacimiento:" [readonly]="true" fill="outline"></ion-input></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item-divider>
+      <ion-label> Valoración </ion-label>
+    </ion-item-divider>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-input [(ngModel)]="fisio" labelPlacement="floating" type="text" label="Fisioterapeuta:" [readonly]="true" fill="outline" ></ion-input></ion-col>
+    <ion-col><ion-input [(ngModel)]="sesiones" labelPlacement="floating" type="text" label="N° Sesiones requeridas:" [readonly]="true" fill="outline"></ion-input></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-input [(ngModel)]="valora" labelPlacement="floating" type="text" label="Valoracion:" [readonly]="true" fill="outline" ></ion-input></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item-divider>
+      <ion-label> Pagos Realizados ({{ pagostotal }})</ion-label>
+    </ion-item-divider>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  <ion-list lines="full">
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let pago of pagos">
+          <ion-label>
+              <h3>Importe: ${{pago.importe}}</h3>
+              <h3>Fecha de Pago: {{pago.fechaPago}}</h3>
+              <h3>N°Recibo: {{pago.recibo}}</h3>
+              <h3>Concepto: {{pago.concepto}}</h3>
+          </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+  <ion-row>
+    <ion-col>
+      <ion-item-divider>
+      <ion-label> Sesiones Atendidas ({{ sesionestotal }})</ion-label>
+    </ion-item-divider>
+    </ion-col>
+  </ion-row>
+  <ion-list lines="full">
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let sesion of sesions">
+          <ion-label>
+              <h3>Fecha de Sesión: {{sesion.fechaSesion}}</h3>
+              <h3>Actividad: {{sesion.Actividad}}</h3>
+              <h3>Semaforo: {{sesion.Semaforo}}</h3>
+              <h3>Indicaciones: {{sesion.Indicaciones}}</h3>
+          </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+</ion-content>
