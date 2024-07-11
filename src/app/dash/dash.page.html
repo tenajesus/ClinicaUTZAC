@@ -8,6 +8,7 @@
 <h1 class="title">Gráficas</h1>
 
 <div class="box box1">
+  
   <apx-chart
        [chart]="options.chart"
        [series]="options.series"
@@ -25,6 +26,9 @@
     <h1>1,500</h1>
     <h2>Pacientes</h2>
   </div>
+  <ion-button color="dark" size="small" (click)="ngOnInit()">
+    <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+  </ion-button>
 </div>
 
 <div class="box box2">

@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  
 <ion-grid>
   <ion-row>
     <ion-col>
@@ -61,6 +62,31 @@
     <ion-col>
       <ion-item-divider>
       <ion-label> Sesiones Atendidas ({{ sesionestotal }})</ion-label>
+    </ion-item-divider>
+    <ion-item-divider>
+      <ion-label> Grafica de Seguimiento</ion-label>
+    </ion-item-divider>
+    <div class="box box1">
+      <apx-chart
+             [chart]="options.chart"
+             [series]="options.series"
+             [stroke]="options.stroke"
+             [markers]="options.markers"
+             [grid]="options.grid"
+             [tooltip]="options.tooltip"
+             [colors]="options.colors"
+             [dataLabels]="options.dataLabels"
+             [labels]="options.labels"
+             [title]="options.title"
+             [legend]="options.legend"
+        >
+      </apx-chart>
+          <ion-button color="dark" size="small" (click)="ngOnInit()">
+          <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+    <ion-item-divider>
     </ion-item-divider>
     </ion-col>
   </ion-row>

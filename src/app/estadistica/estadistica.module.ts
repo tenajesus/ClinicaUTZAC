@@ -4,20 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetallesPageRoutingModule } from './detalles-routing.module';
+import { EstadisticaPageRoutingModule } from './estadistica-routing.module';
 
-import { DetallesPage } from './detalles.page';
+import { EstadisticaPage } from './estadistica.page';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetallesPageRoutingModule,
+    EstadisticaPageRoutingModule,
     NgApexchartsModule
   ],
-  declarations: [DetallesPage]
+  declarations: [EstadisticaPage]
 })
-export class DetallesPageModule {}
+export class EstadisticaPageModule {}

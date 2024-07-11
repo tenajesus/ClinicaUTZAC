@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Estadísticas Generales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div class="box box1">
+  
+    <apx-chart
+         [chart]="options.chart"
+         [series]="options.series"
+         [stroke]="options.stroke"
+         [markers]="options.markers"
+         [grid]="options.grid"
+         [tooltip]="options.tooltip"
+         [colors]="options.colors"
+         [dataLabels]="options.dataLabels"
+         [labels]="options.labels"
+         [title]="options.title"
+         [legend]="options.legend"
+    ></apx-chart>
+    <div class="details">
+      <h1>1,500</h1>
+      <h2>Pacientes</h2>
+    </div>
+    <ion-button color="dark" size="small" (click)="ngOnInit()">
+      <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+    </ion-button>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Pacientes atendidos por Genero</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>  
+            <div class="box2">
+              <apx-chart
+                [chart]="barOptions.chart"
+                [series]="barOptions.series"
+                [labels]="barOptions.labels"
+                [grid]="barOptions.grid"
+                [xaxis]="barOptions.xaxis"
+                [yaxis]="barOptions.yaxis"
+                [title]="barOptions.title"
+                [legend]="barOptions.legend"
+                [dataLabels]="barOptions.dataLabels"
+              ></apx-chart>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>  
+            <div class="box2">
+              <apx-chart
+                [chart]="Sesionoptions.chart"
+                [series]="Sesionoptions.series"
+                [labels]="Sesionoptions.labels"
+                [grid]="Sesionoptions.grid"
+                [xaxis]="Sesionoptions.xaxis"
+                [yaxis]="Sesionoptions.yaxis"
+                [title]="Sesionoptions.title"
+                [legend]="Sesionoptions.legend"
+                [dataLabels]="Sesionoptions.dataLabels"
+              ></apx-chart>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-card>
+    <ion-card-content>  
+      <div class="box box2">
+        <apx-chart
+          [chart]="areaOptions.chart"
+          [series]="areaOptions.series"
+          [stroke]="areaOptions.stroke"
+          [xaxis]="areaOptions.xaxis"
+          [title]="areaOptions.title"
+          [subtitle]="areaOptions.subtitle"
+          [fill]="areaOptions.fill"
+          [tooltip]="areaOptions.tooltip"
+          [colors]="areaOptions.colors"
+        ></apx-chart>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+  
+</ion-content>

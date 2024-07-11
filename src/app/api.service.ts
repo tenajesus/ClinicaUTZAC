@@ -22,9 +22,11 @@ export class ApiService {
   addPay(id:any,data:any,){
     return this.http.post('http://localhost/ionic/backend/pay.php?id='+id,data)
   }
-
   getPacientes(){
     return this.http.get('http://localhost/ionic/backend/getStudents.php')
+  }
+  getFisios(){
+    return this.http.get('http://localhost/ionic/backend/getFisios.php')
   }
   deletePaciente(id:any){
     return this.http.delete('http://localhost/ionic/backend/delete.php?id='+id)
@@ -43,5 +45,17 @@ export class ApiService {
 }
 getSesiones(id:any){
   return this.http.get('http://localhost/ionic/backend/getSesiones.php?id='+id)
+}
+getGrupoEdades(){
+  return this.http.get('http://localhost/ionic/backend/getEdades.php')
+}
+getGenero(){
+  return this.http.get('http://localhost/ionic/backend/getGenero.php')
+}
+getMoney(){
+  return this.http.get('http://localhost/ionic/backend/getLana.php')
+}
+getSesionGrupo(){
+  return this.http.get('http://localhost/ionic/backend/getSesionGrupo.php')
 }
 }

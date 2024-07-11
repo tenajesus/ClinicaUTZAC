@@ -62,6 +62,10 @@ const routes: Routes = [
   {
     path: 'dash',
     loadChildren: () => import('./dash/dash.module').then( m => m.DashPageModule)
+  },
+  {
+    path: 'estadistica',
+    loadChildren: () => import('./estadistica/estadistica.module').then( m => m.EstadisticaPageModule)
   }
 ];
 

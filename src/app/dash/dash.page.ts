@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, resolveForwardRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApexAxisChartSeries,ApexChart,ApexDataLabels,ApexFill,ApexGrid,ApexLegend,ApexMarkers,ApexPlotOptions,
   ApexStroke,ApexTitleSubtitle,ApexTooltip,ApexXAxis,ApexYAxis,} from 'ng-apexcharts';
-import { map, timestamp } from 'rxjs';
 import { ApiService } from '../api.service';
-
 
 
 export type ChartOptions = {
@@ -40,6 +38,7 @@ export class DashPage implements OnInit {
   pacientes:any = [];
   edades:any
   sesiones:any
+  fisios:any
   
 
   public options: Partial<ChartOptions> | any;
@@ -53,12 +52,7 @@ export class DashPage implements OnInit {
     public _apiService : ApiService
   ) { 
     
-    // this.api()
-    this.getEdades();
-    this.spackLine(this.edades, this.sesiones);
-    this.barChart();
-    this.areaChart()
-    
+  
   }
  
   getEdades(){
@@ -66,11 +60,21 @@ export class DashPage implements OnInit {
       this.pacientes = res
       const edades = res.map((item:any) => parseInt(item.edad))
       const sesiones = res.map((item:any) => parseInt(item.sesiones))
-      // console.log(edades,sesiones)
+      console.log(edades)
+      console.log(sesiones)
       this.spackLine(edades, sesiones);  
-    });
-    
+    });    
   }
+
+  getFisios(){
+    this._apiService.getFisios().subscribe((res:any) =>{
+      this.pacientes = res
+      const fisios = res.map((item:any) => parseInt(item.fisioterapeuta))
+      console.log(fisios)
+      this.barChart(fisios);  
+    });    
+  }
+
 
   spackLine(res:any, resSesiones:any) {
     this.options = {
@@ -92,7 +96,7 @@ export class DashPage implements OnInit {
         enabled:false
       },
       title:{
-        text:"Total de Pacientes atendidos"
+        text:"Paciente vs Sesiones requeridas"
       },
       labels:resSesiones,
       xaxis:{
@@ -143,28 +147,24 @@ export class DashPage implements OnInit {
     };
   }
 
-  barChart() {
+  barChart(res:any) {
     this.barOptions = {
       chart: {
         type: 'bar',
         height: 200,
         width: '100%',
-        // stacked: true,
-        // // toolbar: {
-        // //   show: true,
-        // // },
+        stacked: true,
+        toolbar: {
+        show: true,
+        },
       },
       series: [
         {
-          name: 'Clothing',
-          data: [42, 52, 16, 55, 59, 51, 45, 32, 26, 33, 44, 51],
-        },
-        {
-          name: 'Foods',
-          data: [6, 12, 4, 7, 5, 3, 6, 4, 3, 3, 5, 6],
+          name: 'Atención por Fisioterapeuta',
+          data: res,
         },
       ],
-      labels: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+      labels: ["Domingo", "Juan Carlos", "Andrea Martinez", "Hector Palacio"],
       grid: {
         borderColor: '#343E59',
         padding: {
@@ -197,7 +197,7 @@ export class DashPage implements OnInit {
         },
       },
       title: {
-        text: 'Yo Tengo otros Datos',
+        text: 'Fisioterapeutas',
         align: 'left',
         style: {
           fontSize: '16px',
@@ -270,17 +270,12 @@ export class DashPage implements OnInit {
     };
   }
 
-  // async api(){
-  //   await this._apiService.getPacientes().subscribe((res:any) =>{
-  //     this.pacientes = res;
-  //     this.pacientesEdad = this.pacientes.map((item:any) => parseInt(item.edad));
-  //     this.pacienteSesiones = this.pacientes.map((item:any) => parseInt(item.sesiones));
-  //     console.log(this.pacientesEdad);
-  //     console.log(this.pacienteSesiones);
-  //   })  
-  // }
   ngOnInit() {
-    
+    this.getEdades();
+    this.getFisios()
+    this.spackLine(this.edades, this.sesiones);
+    this.barChart(this.fisios);
+    this.areaChart()
      }
 
 }
